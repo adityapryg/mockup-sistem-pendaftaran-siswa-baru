@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Sistem Pendaftaran Siswa Baru</title>
+    <style>
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+<section id="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+        <div class="container">
+            <a class="navbar-brand fw-bolder" href="#">Sistem Penerimaan Siswa Baru</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                </ul>
+                <a href="login.html" class="btn btn-outline-success">Login</a>
+            </div>
+        </div>
+    </nav>
+</section>
+<section id="blog">
+    <div class="container-fluid bg-dark bg-opacity-75 border-bottom">
+        <div class="container">
+            <div class="py-3 text-white rounded">
+                <div class="col-md-12 px-0">
+                    <h1 class="display-4 fst-italic">Selamat Datang di Sistem Penerimaan Siswa Baru</h1>
+                    <p class="lead my-3">Situs ini dipersiapkan sebagai pengganti pusat informasi dan pengolahan seleksi
+                        data siswa peserta PPDB secara online real time process untuk pelaksanaan PPDB Online. <a
+                                href="https://siap-ppdb.com/" target="_blank" class="text-white fw-bold">Lihat Peserta
+                            PPDB di Kab / Kota lainnya</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container-fluid py-5 bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 text-center text-lg-start d-flex justify-content-between align-items-center">
+                    <div class="py-4">
+                        <div class="bg-dark text-secondary px-4 py-5 text-center">
+                            <h1 class="display-5 fw-bold text-white">Langkah mudah, mendaftar sekolah</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card">
+                        <h5 class="card-header">Formulir Registrasi</h5>
+                        <div class="card-body">
+                            <div class="d-flex align-items-start">
+                                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
+                                     aria-orientation="vertical">
+                                    <button class="nav-link active" id="v-pills-akun-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-akun" type="button" role="tab"
+                                            aria-controls="v-pills-akun"
+                                            aria-selected="true">Informasi Akun
+                                    </button>
+                                    <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-profile" type="button" role="tab"
+                                            aria-controls="v-pills-profile" aria-selected="false">Data Diri
+                                    </button>
+                                    <button class="nav-link" id="v-pills-alamat-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-alamat" type="button" role="tab"
+                                            aria-controls="v-pills-alamat"
+                                            aria-selected="false">Tempat Tinggal
+                                    </button>
+                                    <button class="nav-link" id="v-pills-parents-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-parents" type="button" role="tab"
+                                            aria-controls="v-pills-parents" aria-selected="false">Orang Tua
+                                    </button>
+                                    <button class="nav-link" id="v-pills-berkas-tab" data-bs-toggle="pill"
+                                            data-bs-target="#v-pills-berkas" type="button" role="tab"
+                                            aria-controls="v-pills-berkas"
+                                            aria-selected="false">Unggah Berkas
+                                    </button>
+                                </div>
+                                <form class="g-3 needs-validation" id="form-pendaftaran" novalidate>
+                                    <div class="tab-content" id="v-pills-tabContent">
+                                        <div class="tab-pane fade show active" id="v-pills-akun" role="tabpanel"
+                                             aria-labelledby="v-pills-akun-tab">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label for="jurusan" class="form-label">Jurusan/Peminatan</label>
+                                                    <select id="jurusan" name="jurusan" class="form-control" required>
+                                                        <option>SD</option>
+                                                        <option>SMP</option>
+                                                        <option>SMA IPA</option>
+                                                        <option>SMA IPS</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="nisn" class="form-label">NISN <small>*Digunakan sebagai
+                                                        username
+                                                        login</small></label>
+                                                    <input type="text" class="form-control" id="nisn" name="nisn"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi NISN Pendaftaran yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="password" class="form-label">Password</label>
+                                                    <input id="password" class="form-control" name="password"
+                                                           type="password"
+                                                           min="8"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Password minimal berisi 8 karakter
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               id="invalidCheck"
+                                                               required>
+                                                        <label class="form-check-label" for="invalidCheck">
+                                                            Saya telah membaca ketentuan dan persyaratan pendaftaran
+                                                            siswa
+                                                            baru
+                                                        </label>
+                                                        <div class="invalid-feedback">
+                                                            Anda harus menyetujui unuk melanjutkan
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                                             aria-labelledby="v-pills-profile-tab">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="nis" class="form-label">NIS Pendaftaran</label>
+                                                    <input type="text" class="form-control" id="nis" name="nis"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi NIS Pendaftaran yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nik" class="form-label">NIK</label>
+                                                    <input type="text" class="form-control" name="nik"
+                                                           id="nik"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        NIK harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="no_kk" class="form-label">Nomor Kartu Keluarga</label>
+                                                    <input type="text" class="form-control" name="no_kk"
+                                                           id="no_kk"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Nomor Kartu Keluarga harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+                                                    <input type="text" class="form-control" name="nama_lengkap"
+                                                           id="nama_lengkap"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Nama Lengkap harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+                                                    <input type="text" class="form-control" id="tempat_lahir"
+                                                           name="tempat_lahir"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Tempat lahir harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                                    <input id="tanggal_lahir" class="form-control" name="tanggal_lahir"
+                                                           type="date"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Tanggal lahir harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                                                    <select class="form-select" id="jenis_kelamin" name="jenis_kelamin"
+                                                            required>
+                                                        <option>Laki-laki</option>
+                                                        <option>Perempuan</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Jenis Kelamin harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="agama" class="form-label">Agama</label>
+                                                    <select class="form-select" id="agama" name="agama">
+                                                        <option>Islam</option>
+                                                        <option>Kristen</option>
+                                                        <option>Katholik</option>
+                                                        <option>Hindu</option>
+                                                        <option>Budha</option>
+                                                        <option>Kong Huchu</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="no_hp" class="form-label">Nomor Handphone</label>
+                                                    <input type="text" class="form-control" id="no_hp" name="no_hp">
+                                                    <div class="invalid-feedback">
+                                                        Nomor handphone harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="asal_sekolah" class="form-label">Asal Sekolah</label>
+                                                    <input type="text" class="form-control" id="asal_sekolah"
+                                                           name="asal_sekolah"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Asal sekolah harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="anak_ke" class="form-label">Anak ke</label>
+                                                    <input type="number" class="form-control" id="anak_ke"
+                                                           name="anak_ke">
+                                                    <div class="invalid-feedback">
+                                                        Anak ke sekian harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="jumlah_saudara" class="form-label">Jumlah
+                                                        saudara</label>
+                                                    <input type="number" class="form-control" id="jumlah_saudara"
+                                                           name="jumlah_saudara">
+                                                    <div class="invalid-feedback">
+                                                        Jumlah saudara harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="cita_cita" class="form-label">Cita-cita</label>
+                                                    <input type="text" class="form-control" id="cita_cita"
+                                                           name="cita_cita">
+                                                    <div class="invalid-feedback">
+                                                        Cita-cita harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="hobi" class="form-label">Hobi</label>
+                                                    <input type="text" class="form-control" id="hobi"
+                                                           name="hobi">
+                                                    <div class="invalid-feedback">
+                                                        Hobi harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="status_keluarga" class="form-label">Status Dalam
+                                                        Keluarga (kandung/tiri)</label>
+                                                    <input type="text" class="form-control" id="status_keluarga"
+                                                           name="status_keluarga">
+                                                    <div class="invalid-feedback">
+                                                        Status keluarga harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="no_kip" class="form-label">Nomor KIP</label>
+                                                    <input type="text" class="form-control" id="no_kip"
+                                                           name="no_kip" placeholder="kosongkan apabila tidak memiliki">
+                                                    <div class="invalid-feedback">
+                                                        Nomor KIP harus diisi
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-alamat" role="tabpanel"
+                                             aria-labelledby="v-pills-alamat-tab">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="alamat" class="form-label">Alamat</label>
+                                                    <input type="text" class="form-control" id="alamat" name="alamat"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Alamat harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="rt" class="form-label">RT</label>
+                                                    <input type="text" class="form-control" id="rt" name="rt">
+                                                    <div class="invalid-feedback">
+                                                        RT harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label for="rw" class="form-label">RW</label>
+                                                    <input type="text" class="form-control" id="rw" name="rw">
+                                                    <div class="invalid-feedback">
+                                                        RW harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="desa" class="form-label">Desa</label>
+                                                    <input type="text" class="form-control" id="desa" name="desa"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Desa harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="kecamatan" class="form-label">Kecamatan</label>
+                                                    <input type="text" class="form-control" id="kecamatan"
+                                                           name="kecamatan"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Kecamatan harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="kota" class="form-label">Kabupaten/Kota</label>
+                                                    <input type="text" class="form-control" id="kota" name="kota"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Kabupaten/Kota harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="provinsi" class="form-label">Provinsi</label>
+                                                    <input type="text" class="form-control" id="provinsi"
+                                                           name="provinsi"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Provinsi harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="kode_pos" class="form-label">Kode POS</label>
+                                                    <input type="text" class="form-control" id="kode_pos"
+                                                           name="kode_pos"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Kode POS harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="tinggal" class="form-label">Tinggal bersama</label>
+                                                    <select id="tinggal" name="tinggal" class="form-select">
+                                                        <option>Orang Tua</option>
+                                                        <option>Wali</option>
+                                                        <option>Sendiri/Kost</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="jarak" class="form-label">Jarak ke Sekolah
+                                                        (Meter)</label>
+                                                    <input type="number" class="form-control" id="jarak" name="jarak"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Jarak ke Sekolah harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="waktu" class="form-label">Waktu sampai ke Sekolah
+                                                        (Menit)</label>
+                                                    <input type="number" class="form-control" id="waktu" name="waktu"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Waktu ke Sekolah harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="transportasi" class="form-label">Moda
+                                                        transportasi</label>
+                                                    <select id="transportasi" name="transportasi" class="form-select">
+                                                        <option>Jalan Kaki</option>
+                                                        <option>Sepeda</option>
+                                                        <option>Angkutan Umum</option>
+                                                        <option>Sepeda Motor</option>
+                                                        <option>Mobil Pribadi</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Moda transportasi harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               id="invalidCheck2"
+                                                               required>
+                                                        <label class="form-check-label" for="invalidCheck2">
+                                                            Saya telah mengisi data alamat dengan data yang valid dan
+                                                            sebenar-benarnya
+                                                        </label>
+                                                        <div class="invalid-feedback">
+                                                            Anda harus menyetujui unuk melanjutkan
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-parents" role="tabpanel"
+                                             aria-labelledby="v-pills-parents-tab">
+                                            <div class="row" id="data-ayah">
+                                                <div class="col-md-12">
+                                                    <h5>Data Ayah</h5>
+                                                </div>
+                                                <hr>
+                                                <div class="col-md-6">
+                                                    <label for="status_ayah" class="form-label">Status Ayah</label>
+                                                    <select id="status_ayah" class="form-select" name="status_ayah"
+                                                            required>
+                                                        <option>Masih Hidup</option>
+                                                        <option>Meninggal Dunia</option>
+                                                        <option>Tidak Diketahui</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Status Ayah yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="no_kk_ayah" class="form-label">Nomor KK Ayah</label>
+                                                    <input type="text" class="form-control" id="no_kk_ayah"
+                                                           name="no_kk_ayah"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Nomor KK Ayah yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama_ayah" class="form-label">Nama Ayah</label>
+                                                    <input type="text" class="form-control" id="nama_ayah"
+                                                           name="nama_ayah"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Nama Ayah yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="tahun_lahir_ayah" class="form-label">Tahun Lahir
+                                                        Ayah</label>
+                                                    <input type="text" class="form-control" id="tahun_lahir_ayah"
+                                                           name="tahun_lahir_ayah"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Tahun Lahir Ayah yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="pendidikan_ayah" class="form-label">Pendidikan
+                                                        Ayah</label>
+                                                    <select id="pendidikan_ayah" class="form-select"
+                                                            name="pendidikan_ayah"
+                                                            required>
+                                                        <option>Tidak Sekolah</option>
+                                                        <option>SD Sederajat</option>
+                                                        <option>SMP Sederajat</option>
+                                                        <option>SMA Sederajat</option>
+                                                        <option>D3</option>
+                                                        <option>D4/S1</option>
+                                                        <option>S2</option>
+                                                        <option>S3</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Pendidikan Ayah yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="pekerjaan_ayah" class="form-label">Pekerjaan
+                                                        Ayah</label>
+                                                    <input id="pekerjaan_ayah" type="text" name="pekerjaan_ayah"
+                                                           class="form-control">
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Pekerjaan Ayah yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="penghasilan_ayah" class="form-label">Penghasilan
+                                                        Ayah</label>
+                                                    <select id="penghasilan_ayah" class="form-select"
+                                                            name="penghasilan_ayah"
+                                                            required>
+                                                        <option>Kurang dari Rp500.000</option>
+                                                        <option>Rp500.000 s/d Rp999.999</option>
+                                                        <option>Rp1.000.000 s/d Rp2.000.000</option>
+                                                        <option>Rp2.000.000 s/d Rp4.000.000</option>
+                                                        <option>Rp5.000.000 s/d Rp20.000.000</option>
+                                                        <option>Belum berpenghasilan</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Penghasilan Ayah yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="no_hp_ayah" class="form-label">Nomor HP
+                                                        Ayah</label>
+                                                    <input type="text" class="form-control" id="no_hp_ayah"
+                                                           name="no_hp_ayah"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Nomor HP Ayah yang valid
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3" id="data-ibu">
+                                                <div class="col-md-12">
+                                                    <h5>Data Ibu</h5>
+                                                </div>
+                                                <hr>
+                                                <div class="col-md-6">
+                                                    <label for="status_ibu" class="form-label">Status Ibu</label>
+                                                    <select id="status_ibu" class="form-select" name="status_ibu"
+                                                            required>
+                                                        <option>Masih Hidup</option>
+                                                        <option>Meninggal Dunia</option>
+                                                        <option>Tidak Diketahui</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Status Ibu yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="no_kk_ibu" class="form-label">Nomor KK Ibu</label>
+                                                    <input type="text" class="form-control" id="no_kk_ibu"
+                                                           name="no_kk_ibu"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Nomor KK Ibu yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama_ibu" class="form-label">Nama Ibu</label>
+                                                    <input type="text" class="form-control" id="nama_ibu"
+                                                           name="nama_ibu"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Nama Ibu yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="tahun_lahir_ibu" class="form-label">Tahun Lahir
+                                                        Ibu</label>
+                                                    <input type="text" class="form-control" id="tahun_lahir_ibu"
+                                                           name="tahun_lahir_ibu"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Tahun Lahir Ibu yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="pendidikan_ibu" class="form-label">Pendidikan
+                                                        Ibu</label>
+                                                    <select id="pendidikan_ibu" class="form-select"
+                                                            name="pendidikan_ibu"
+                                                            required>
+                                                        <option>Tidak Sekolah</option>
+                                                        <option>SD Sederajat</option>
+                                                        <option>SMP Sederajat</option>
+                                                        <option>SMA Sederajat</option>
+                                                        <option>D3</option>
+                                                        <option>D4/S1</option>
+                                                        <option>S2</option>
+                                                        <option>S3</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Pendidikan Ibu yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="pekerjaan_ibu" class="form-label">Pekerjaan
+                                                        Ibu</label>
+                                                    <input id="pekerjaan_ibu" type="text" name="pekerjaan_ibu"
+                                                           class="form-control">
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Pekerjaan Ibu yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="penghasilan_ibu" class="form-label">Penghasilan
+                                                        Ibu</label>
+                                                    <select id="penghasilan_ibu" class="form-select"
+                                                            name="penghasilan_ibu"
+                                                            required>
+                                                        <option>Kurang dari Rp500.000</option>
+                                                        <option>Rp500.000 s/d Rp999.999</option>
+                                                        <option>Rp1.000.000 s/d Rp2.000.000</option>
+                                                        <option>Rp2.000.000 s/d Rp4.000.000</option>
+                                                        <option>Rp5.000.000 s/d Rp20.000.000</option>
+                                                        <option>Belum berpenghasilan</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Penghasilan Ibu yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="no_hp_ibu" class="form-label">Nomor HP
+                                                        Ibu</label>
+                                                    <input type="text" class="form-control" id="no_hp_ibu"
+                                                           name="no_hp_ibu"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Nomor HP Ibu yang valid
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3" id="data-wali">
+                                                <div class="col-md-12">
+                                                    <h5>Data Wali</h5>
+                                                </div>
+                                                <hr>
+                                                <div class="col-md-6">
+                                                    <label for="nik_wali" class="form-label">NIK Wali</label>
+                                                    <input type="text" class="form-control" name="nik_wali"
+                                                           id="nik_wali"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        NIK Wali harus diisi
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama_wali" class="form-label">Nama Wali</label>
+                                                    <input type="text" class="form-control" id="nama_wali"
+                                                           name="nama_wali"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Nama Wali yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="tahun_lahir_wali" class="form-label">Tahun Lahir
+                                                        Wali</label>
+                                                    <input type="text" class="form-control" id="tahun_lahir_wali"
+                                                           name="tahun_lahir_wali"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Tahun Lahir Wali yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="pendidikan_wali" class="form-label">Pendidikan
+                                                        Wali</label>
+                                                    <select id="pendidikan_wali" class="form-select"
+                                                            name="pendidikan_wali"
+                                                            required>
+                                                        <option>Tidak Sekolah</option>
+                                                        <option>SD Sederajat</option>
+                                                        <option>SMP Sederajat</option>
+                                                        <option>SMA Sederajat</option>
+                                                        <option>D3</option>
+                                                        <option>D4/S1</option>
+                                                        <option>S2</option>
+                                                        <option>S3</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Pendidikan Wali yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="pekerjaan_wali" class="form-label">Pekerjaan
+                                                        Wali</label>
+                                                    <input id="pekerjaan_wali" type="text" name="pekerjaan_wali"
+                                                           class="form-control">
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Pekerjaan Wali yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="penghasilan_wali" class="form-label">Penghasilan
+                                                        Wali</label>
+                                                    <select id="penghasilan_wali" class="form-select"
+                                                            name="penghasilan_wali"
+                                                            required>
+                                                        <option>Kurang dari Rp500.000</option>
+                                                        <option>Rp500.000 s/d Rp999.999</option>
+                                                        <option>Rp1.000.000 s/d Rp2.000.000</option>
+                                                        <option>Rp2.000.000 s/d Rp4.000.000</option>
+                                                        <option>Rp5.000.000 s/d Rp20.000.000</option>
+                                                        <option>Belum berpenghasilan</option>
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Penghasilan Wali yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="no_hp_wali" class="form-label">Nomor HP
+                                                        Wali</label>
+                                                    <input type="text" class="form-control" id="no_hp_wali"
+                                                           name="no_hp_wali"
+                                                           required>
+                                                    <div class="invalid-feedback">
+                                                        Mohon isi Nomor HP Wali yang valid
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                               id="invalidCheck3"
+                                                               required>
+                                                        <label class="form-check-label" for="invalidCheck3">
+                                                            Saya telah mengisi data orang tua dengan data yang valid dan
+                                                            sebenar-benarnya
+                                                        </label>
+                                                        <div class="invalid-feedback">
+                                                            Anda harus menyetujui unuk melanjutkan
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="v-pills-berkas" role="tabpanel"
+                                             aria-labelledby="v-pills-berkas-tab">
+                                            <div class="row berkas">
+                                                <div class="col-md-12">
+                                                    <label for="foto" class="form-label">Foto 3x4</label>
+                                                    <input id="foto" type="file" class="form-control">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="file_kk" class="form-label">Kartu Keluarga</label>
+                                                    <input id="file_kk" type="file" class="form-control">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="file_akta" class="form-label">Akta Kelahiran</label>
+                                                    <input id="file_akta" type="file" class="form-control">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="file_ijazah" class="form-label">Ijazah/SKL</label>
+                                                    <input id="file_ijazah" type="file" class="form-control">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="file_kip" class="form-label">Kartu Indonesia
+                                                        Pintar</label>
+                                                    <input id="file_kip" type="file" class="form-control">
+                                                </div>
+                                                <div class="col-md-12 mt-2 d-flex justify-content-end">
+                                                    <button type="button" onclick="printForm()"
+                                                            class="btn btn-outline-primary me-2">Print
+                                                    </button>
+                                                    <button type="submit" class="btn btn-success">Simpan</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="footer" class="bg-dark">
+    <div class="container-fluid border-top">
+        <footer class="card-footer d-flex flex-wrap justify-content-center align-items-center py-3">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap"/>
+                    </svg>
+                </a>
+                <span class="text-muted">&copy; 2021 Aditya Prayoga - 201943502046</span>
+            </div>
+        </footer>
+    </div>
+</section>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Sukses</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Formulir pendaftaran telah disimpan, silahkan login menggunakan NISN dan password yang dimasukkan
+        </div>
+    </div>
+</div>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/polyfills.umd.js"></script>
+<script>
+    var toastLiveExample = document.getElementById('liveToast')
+    document.getElementById('form-pendaftaran').addEventListener('submit', function (event) {
+        event.preventDefault();
+        var toast = new bootstrap.Toast(toastLiveExample)
+
+        toast.show()
+    });
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        let forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+    let printForm = () => {
+        let prtContent = document.getElementById("form-pendaftaran");
+        let WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+
+        let berkas = prtContent.querySelectorAll('.berkas');
+
+        prtContent.querySelectorAll('.invalid-feedback').forEach(function (a) {
+            a.remove()
+        })
+        prtContent.querySelectorAll('.form-check').forEach(function (a) {
+            a.remove()
+        })
+        berkas.forEach(function (a) {
+            a.remove()
+        })
+        prtContent.querySelectorAll('button').forEach(function (a) {
+            a.remove()
+        })
+        WinPrint.document.write(prtContent.innerHTML);
+        WinPrint.document.close();
+        WinPrint.focus();
+        WinPrint.print();
+        WinPrint.close();
+
+        document.getElementById('v-pills-berkas').appendChild(berkas[0]);
+    }
+</script>
+</body>
+</html>
